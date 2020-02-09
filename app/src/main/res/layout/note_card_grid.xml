@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+    app:cardBackgroundColor="#CEC5C5"
+    >
+
+    <LinearLayout
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is the title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:lines="1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginTop="5dp"
+            android:id="@+id/textView_noteTitle_grid"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is the date"
+            android:textSize="15sp"
+            android:layout_marginTop="2dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is the note body"
+            android:maxLines="5"
+            android:id="@+id/textView_noteBody_grid"
+            android:lines="5"
+            android:ellipsize="end"
+            android:layout_marginTop="10dp"
+            />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
