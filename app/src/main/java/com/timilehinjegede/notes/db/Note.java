@@ -10,10 +10,12 @@ public class Note {
     private int id ;
     private String title ;
     private String body ;
+    private String date;
 
-    public Note(String title, String body) {
+    public Note(String title, String body,String date) {
         this.title = title;
         this.body = body;
+        this.date = date ;
     }
 
     public void setId(int id) {
@@ -30,5 +32,9 @@ public class Note {
 
     public String getBody() {
         return body;
+    }
+
+    public String getDate() {
+        return date;
     }
 }

@@ -23,6 +23,9 @@ import com.google.android.material.snackbar.Snackbar;
 import com.timilehinjegede.notes.R;
 import com.timilehinjegede.notes.db.Note;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class AllNotesActivity extends AppCompatActivity {
@@ -32,6 +35,9 @@ public class AllNotesActivity extends AppCompatActivity {
 
     NoteViewModel noteViewModel;
     CoordinatorLayout layout ;
+    Date date = Calendar.getInstance().getTime();
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMM yyyy");
+    String myDate = simpleDateFormat.format(date);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,9 @@ public class AllNotesActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         FloatingActionButton floatingActionButton = findViewById(R.id.addNoteFab);
         layout = findViewById(R.id.rootLayout);
+
+
+        getSupportActionBar().setTitle("All Notes");
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +120,7 @@ public class AllNotesActivity extends AppCompatActivity {
             String title = data.getStringExtra(AddNoteActivity.EXTRA_TITLE);
             String body = data.getStringExtra(AddNoteActivity.EXTRA_BODY);
 
-            Note note = new Note(title,body);
+            Note note = new Note(title,body,myDate);
             noteViewModel.insert(note);
 
             Toast.makeText(this,"Note Saved",Toast.LENGTH_SHORT).show();
@@ -125,7 +134,7 @@ public class AllNotesActivity extends AppCompatActivity {
             String title = data.getStringExtra(AddNoteActivity.EXTRA_TITLE);
             String body = data.getStringExtra(AddNoteActivity.EXTRA_BODY);
 
-            Note note = new Note(title,body);
+            Note note = new Note(title,body,myDate);
             note.setId(id);
             noteViewModel.update(note);
             Toast.makeText(this,"Note Updated",Toast.LENGTH_SHORT).show();
